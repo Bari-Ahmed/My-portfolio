@@ -8,55 +8,73 @@ body {
   font-family: "Segoe UI", sans-serif;
   background: #0f172a;
   color: white;
+  line-height: 1.6;
 }
 
+/* ---------- HEADER ---------- */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 60px;
-  background: transparent;
   position: sticky;
   top: 0;
   z-index: 1000;
+  background: #0f172a;
 }
 
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
+  color: aqua;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 nav a {
-  margin: 0 15px;
   color: white;
   text-decoration: none;
   font-weight: 500;
+  transition: color 0.3s;
 }
 
+nav a:hover {
+  color: aqua;
+}
+
+/* ---------- HOME SECTION ---------- */
 .home {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  gap: 40px;
   padding: 60px;
-  min-height: 100vh;
+  flex-wrap: wrap;
 }
+
 .content {
-  max-width: 50%;
+  max-width: 500px;
+  text-align: left;
 }
 
 .content .intro {
-  font-size: 1.2rem;
-  margin-bottom: 10px;
+  font-size: 1.1rem;
+  color: #ccc;
 }
 
 .content h1 {
   font-size: 3rem;
   font-weight: bold;
+  margin: 10px 0;
 }
 
 .content .subtitle {
   font-size: 1.3rem;
-  color: #ccc;
+  color: #999;
 }
 
 .cursor {
@@ -76,13 +94,31 @@ nav a {
   }
 }
 
+/* ---------- BUTTON ---------- */
+.btn {
+  padding: 12px 25px;
+  background: aqua;
+  color: #000;
+  border: none;
+  border-radius: 30px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background 0.3s ease;
+}
+
+.btn:hover {
+  background: #00ffffb7;
+}
+
+/* ---------- SOCIAL ICONS ---------- */
 .social-icons {
-  margin: 20px 0;
+  margin-top: 25px;
 }
 
 .social-icons a {
   color: white;
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   margin-right: 15px;
   transition: color 0.3s;
 }
@@ -90,31 +126,18 @@ nav a {
 .social-icons a:hover {
   color: aqua;
 }
-.btn {
-  padding: 10px 20px;
-  background: aqua;
-  color: #000;
-  border: none;
-  border-radius: 30px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: 0.3s;
-}
 
-.btn:hover {
-  background: #00ffffaa;
-}
+/* ---------- PROFILE IMAGE ---------- */
 .profile-image {
-  position: relative;
   width: 300px;
   height: 300px;
   border-radius: 50%;
   background: linear-gradient(45deg, cyan, aqua, cyan);
   padding: 5px;
+  animation: glow 2s infinite ease-in-out;
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: glow 2s infinite ease-in-out;
 }
 
 .profile-image img {
@@ -122,8 +145,9 @@ nav a {
   height: 100%;
   border-radius: 50%;
   object-fit: cover;
-  background-color: #fff;
+  background-color: white;
 }
+
 @keyframes glow {
   0% {
     box-shadow: 0 0 10px aqua;
@@ -136,6 +160,7 @@ nav a {
   }
 }
 
+/* ---------- SCROLL TO TOP ---------- */
 .scroll-top {
   position: fixed;
   bottom: 20px;
@@ -144,10 +169,85 @@ nav a {
   color: black;
   border: none;
   border-radius: 50%;
-  padding: 10px;
+  padding: 12px;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.2rem;
+  z-index: 1000;
+  transition: background 0.3s;
 }
+
+.scroll-top:hover {
+  background: #00ffffb7;
+}
+
+/* ---------- RESPONSIVE STYLES ---------- */
+@media (max-width: 1024px) {
+  header {
+    padding: 20px 30px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    margin-top: 10px;
+    gap: 10px;
+  }
+
+  .home {
+    flex-direction: column-reverse;
+    padding: 40px 30px;
+    text-align: center;
+  }
+
+  .content {
+    max-width: 100%;
+    text-align: center;
+  }
+
+  .profile-image {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 20px;
+  }
+
+  .content h1 {
+    font-size: 2.5rem;
+  }
+
+  .content .subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  header {
+    padding: 15px 20px;
+  }
+
+  .home {
+    padding: 30px 20px;
+  }
+
+  .content h1 {
+    font-size: 2rem;
+  }
+
+  .profile-image {
+    width: 200px;
+    height: 200px;
+  }
+
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+  }
+
+  .social-icons a {
+    font-size: 1.2rem;
+    margin-right: 10px;
+  }
+}
+
 .about {
   background-color: #0f172a;
   color: white;
@@ -321,9 +421,9 @@ nav a {
 
 .bar {
   background-color: #1e293b;
-  border-radius: 10px;
+  border-radius: 50px;
   overflow: hidden;
-  margin-top: 5px;
+  margin-top: 30px;
 }
 
 .progress {
